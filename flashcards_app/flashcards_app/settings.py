@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'flashcards_app.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgresql://flashcards_f71y_user:MjM4vlmQRrArfEy3Xg5NKb7WjLN8NEqf@dpg-d07rraadbo4c73brcqcg-a/flashcards_f71y',
         conn_max_age=600
     )
 }
