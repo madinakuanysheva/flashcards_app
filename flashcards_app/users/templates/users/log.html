@@ -1,0 +1,17 @@
+{% extends 'users/layout.html' %}
+
+{% block title %}Вход в пространство заботы{% endblock %}
+
+{% block content %}
+<div class="reg">
+    <h1 class="mb-4">💌 Рады снова тебя видеть</h1>
+    <p class="mb-4" style="color: #555; font-size: 18px;">Войди, чтобы продолжить своё эффективное обучение с карточками.</p>
+
+    <form method="post" class="card p-4 shadow rounded-4" style="background-color: #fff;">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Имя пользователя" class="form-control mb-3" required>
+        <input type="password" name="password" placeholder="Пароль" class="form-control mb-4" required>
+        <button class="btn btn-success w-100" type="submit">Войти</button>
+    </form>
+</div>
+{% endblock %}

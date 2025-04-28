@@ -1,0 +1,17 @@
+{% extends 'users/layout.html' %}
+{% block title %}Мои темы{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Мои темы</h2>
+    
+    <form method="POST" action="{% url 'generate_cards' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="topic">Введите тему:</label>
+            <input type="text" name="topic" id="topic" class="form-control" placeholder="Напишите тему" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Создать карточки</button>
+    </form>
+</div>
+{% endblock %}
