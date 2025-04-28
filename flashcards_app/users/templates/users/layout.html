@@ -21,9 +21,10 @@
         <ul>
             {% if request.session.username %}
                 <li><a href="{% url 'index' %}" class="nav-link">Главная</a></li>
-                <li><a href="{% url 'popular_cards' %}" class="nav-link">Изучить популярные темы</a></li>
-                <li><a href="{% url 'my_topics' %}" class="nav-link">Изучить свою тему</a></li>
-                <li><a href="{% url 'logout' %}"><button class="nav-btn">Выйти</button></a></li>
+                <li><a href="{% url 'popular_cards' %}" class="nav-link">Популярные темы</a></li>
+                <li><a href="{% url 'my_topics' %}" class="nav-link">Изучить тему с ИИ</a></li>
+                <li><a href="{% url 'generated_topics' %}" class="nav-link">Мои сгенерированные темы</a></li>
+                <li><a href="{% url 'logout' %}"><button class="nav-btn">Выйти</button></a></li><!-- Новая ссылка -->
 
 
             {% else %}

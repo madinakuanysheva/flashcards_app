@@ -1,0 +1,106 @@
+{% extends 'users/layout.html' %}
+{% block title %}Сгенерированные темы{% endblock %}
+
+{% block content %}
+    <h2>Сгенерированные темы</h2>
+
+    <!-- Поиск по теме -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Поиск по теме..." onkeyup="filterTopics()">
+    </div>
+
+    <div id="topic-list-container">
+        <ul id="topic-list">
+            {% for topic in topics %}
+                <li class="topic-item">
+                    <a href="{% url 'study_generated_cards' topic.id %}" class="topic-link">{{ topic.topic }}</a>
+                </li>
+            {% empty %}
+                <li class="no-topics">У вас нет сгенерированных тем.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <style>
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #search {
+            padding: 10px;
+            width: 60%;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            outline: none;
+            margin: 0 auto;
+            display: block;
+        }
+
+        #search:focus {
+            border-color: #4CAF50;
+        }
+
+        #topic-list-container {
+            display: flex;
+            flex-direction: column; /* Элементы будут располагаться вертикально */
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #topic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 80%;
+        }
+
+        .topic-item {
+            margin-bottom: 15px; /* Расстояние между элементами */
+            font-size: 18px;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+        }
+
+        .topic-item:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .topic-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .topic-link:hover {
+            color: #4CAF50;
+        }
+
+        .no-topics {
+            font-size: 18px;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        // Функция фильтрации тем по названию
+        function filterTopics() {
+            const searchQuery = document.getElementById('search').value.toLowerCase();
+            const topicItems = document.querySelectorAll('.topic-item');
+            
+            topicItems.forEach(item => {
+                const topicText = item.textContent.toLowerCase();
+                if (topicText.includes(searchQuery)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+{% endblock %}

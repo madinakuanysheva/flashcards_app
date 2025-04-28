@@ -7,6 +7,7 @@
         <div class="front" id="card-front">{{ cards.0.question }}</div>
         <div class="back" id="card-back">{{ cards.0.answer }}</div>
     </div>
+    
 
     <div class="buttons">
         <button class="know-btn" onclick="nextCard(true)">Знаю</button>
@@ -20,7 +21,6 @@
 
 <div id="result" style="display: none; text-align: center; margin-top: 30px;">
     <h2 id="result-text"></h2>
-    <button class="know-btn" id="restart-btn" onclick="restart()">Пройти заново</button>
     <button class="know-btn" id="finish-btn" onclick="finish()">Перейти к другим темам</button>
 </div>
 

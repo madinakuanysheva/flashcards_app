@@ -7,5 +7,9 @@ urlpatterns = [
     path('topic/<int:topic_id>/', views.topic_cards, name='topic_cards'),
 
     path('my_topics/', views.my_topics, name='my_topics'),  # Страница с темами
-    path('generate_cards/', views.generate_cards, name='generate_cards'),  # Страница генерации карточек
+    path('generate/', views.generate_cards, name='generate_cards'),
+    path('generated_topics/', views.generated_topics, name='generated_topics'),
+    path('study_generated_cards/<int:topic_id>/', views.study_generated_cards, name='study_generated_cards'),
+
 ]
+
